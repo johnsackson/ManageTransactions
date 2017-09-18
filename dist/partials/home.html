@@ -5,7 +5,7 @@
       </a>
       <div class="intro-content">
          <h1>Get Started</h1>
-         <p>Please input 'priya@gmail.com' and continue</p>
+         <p>Please input 'priya@gmail.com' and click continue</p>
          <form class="form-wrap shadowed" name="emailForm" ng-submit="getAllTransactions(emailForm, emailForm.$valid)" novalidate autocomplete="off">
             <div class="form-input-wrap" ng-class="{'has-error': (emailForm.$submitted && emailForm.email.$invalid) || (emailForm.email.$touched && emailForm.email.$invalid) }">
                <input class="form-input" type="text" id="" name="email" required ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true" ng-minlength="1" placeholder="Email" />
