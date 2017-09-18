@@ -1,0 +1,43 @@
+.capitalize {
+  text-transform: capitalize;
+}
+
+.shadowed {
+  -moz-box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 12px 5px rgba(0, 0, 0, 0.1);
+}
+
+.muted {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.error-msg {
+   color: $errorColor;
+   font-size: 0.8em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.sortable .fa {
+  padding-top: 4px;
+  float: right;
+}

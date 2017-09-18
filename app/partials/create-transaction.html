@@ -1,0 +1,37 @@
+<h4>Create a new transaction</h4>
+<form role="form" name="createTransaction" novalidate method="post" ng-submit="creatTrans(createTransaction.$valid)" autocomplete="off">
+   <div class="row">
+      <div class="col-grid-3 col-grid-sm-1">
+         <div class="form-input-wrap" ng-class="{'has-error': (createTransaction.$submitted && createTransaction.amount.$invalid) || (createTransaction.amount.$touched && createTransaction.amount.$invalid) }">
+            <input class="form-input" type="text" name="amount" placeholder="Amount" ng-model="createTransactionData.amount" required restrict-alphabets />
+            <div ng-if="(createTransaction.amount.$invalid && createTransaction.amount.$touched) || (createTransaction.$submitted && createTransaction.amount.$invalid)">
+                <div ng-message="required" class="error-msg">Amount cannot be empty</div>
+            </div>
+         </div>
+      </div>
+      <div class="col-grid-3 col-grid-sm-1">
+         <div class="form-input-wrap select">
+            <select class="form-input" name="currency" placeholder="Select Currency Type" ng-model="createTransactionData.currency" required>
+               <option value="">Currency Type</option>
+               <option value="EUR">EUR</option>
+               <option value="GBP">GBP</option>
+               <option value="INR">INR</option>
+               <option value="USD">USD</option>
+            </select>
+            <div ng-if="(createTransaction.currency.$invalid && createTransaction.currency.$touched) || (createTransaction.$submitted && createTransaction.currency.$invalid)">
+               <div ng-message="required" class="error-msg">Choose a Currency type</div>
+            </div>
+         </div>
+      </div>
+      <div class="col-grid-3 col-grid-sm-1">
+         <div class="form-input-wrap">
+            <input class="form-input" type="text" name="txn_date" placeholder="Date" ng-model="createTransactionData.txn_date" disabled />
+            <span class="muted">Date field is disabled with today's date.</span>
+         </div>
+      </div>
+   </div>
+   <div class="action-wrap">
+      <button type="submit">Create</button>   
+   </div>
+   
+</form>

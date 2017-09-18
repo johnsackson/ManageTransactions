@@ -1,0 +1,28 @@
+.row {
+  max-width: 100%;
+  margin-right: -15px;
+  margin-left: -15px;
+  overflow: hidden;
+}
+
+.col-grid-1, .col-grid-2, .col-grid-3, .col-grid-4 {
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+}
+
+.col-grid-sm-1 {
+  width: 100%;
+}
+
+.col-grid-sm-2 {
+  width: 50%;
+}
+
+.col-grid-sm-3 {
+  width: 33.33333%;
+}
+
+.col-grid-sm-4 {
+  width: 20%;
+}

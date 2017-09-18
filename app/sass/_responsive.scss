@@ -1,0 +1,104 @@
+/* 500px and above */
+@media screen and (min-width: 31.25em) {
+   header {
+      .form-input-wrap {
+         .form-input {
+            flex: 2;
+         }
+      }
+   }
+}
+
+/*610 and above*/
+@media screen and (min-width: 38.125em) {}
+
+/*650 and above*/
+@media screen and (min-width: 40.625em) {}
+
+/*800 and above*/
+@media screen and (min-width: 50em) {
+  .col-grid-1 {
+    width: 100%;
+  }
+  .col-grid-2 {
+    width: 50%;
+  }
+  .col-grid-3 {
+    width: 33.33333%;
+  }
+  .col-grid-4 {
+    width: 20%;
+  }
+  a.button-round {
+    width: 32px;
+    height: 32px;
+    i {
+      padding-top: 8px;
+      font-size: 16px;
+    }
+  }
+  .left-column {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28%;
+    height: 100%;
+    background: #5F7EF5;
+    padding: 30px;
+  }
+  header {
+    .intro-content {
+      margin: 140px 0 0 0;
+    }
+    .form-input-wrap {
+      width: 125%;
+      .form-input {
+        flex: 1;
+        height: 60px;
+        margin-bottom: 0;
+      }
+       button {
+          flex: 2;
+       }
+    }
+  }
+  .right-column {
+    margin-left: 28%;
+    padding: 0 90px;
+    .content {
+      padding-top: 50px;
+       h3 {
+         font-size: 1.6em;
+       }
+    }
+  }
+  table {
+    table-layout: fixed;
+  }
+}
+
+/*1200 and above*/
+@media screen and (min-width: 63.75em) {
+   header {
+      .form-input-wrap {
+         .form-input {
+            flex: 2;
+         }
+         button {
+            flex: 1;
+         }
+      }
+   }
+}
+
+/*1220 and above*/
+@media screen and (min-width: 76.25em) {}
+
+/*1450 and above*/
+@media screen and (min-width: 90.625em) {}
+
+/*1600 and above*/
+@media screen and (min-width: 100em) {}
+
+/*1200 between 1125*/
+@media screen and (min-width: 63.75em) and (max-width: 70.3125em) {}

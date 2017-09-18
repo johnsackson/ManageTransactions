@@ -1,0 +1,91 @@
+input, [type=text] {
+  vertical-align: middle;
+}
+
+[type=submit], button, label {
+  cursor: pointer;
+}
+
+[type=text] {
+  font-size: 1.125em;
+  outline: 0;
+  -webkit-transition: border-color .3s;
+  transition: border-color 0.3s;
+}
+
+button {
+  font-size: 1.125em;
+  outline: 0;
+  -webkit-transition: border-color .3s;
+  transition: border-color 0.3s;
+  vertical-align: top;
+  overflow: visible;
+  color: $white;
+  border-collapse: collapse;
+  border: none;
+  background-color: $primaryColor;
+  padding: 8px 20px;
+}
+
+button:disabled {
+   opacity: 0.6;
+}
+
+[type=text]:placeholder {
+  color: $gray;
+}
+
+input {
+  &::-webkit-input-placeholder, &::-moz-placeholder, &:-ms-input-placeholder, &:-moz-placeholder {
+    color: $gray;
+  }
+}
+
+.form-input-wrap {
+  margin-bottom: 35px;
+}
+
+.form-input {
+  border-collapse: collapse;
+  border: none;
+  font-size: 0.9em;
+  border-bottom: 1px solid $inputBorderColor;
+  padding: 0.8em 0;
+}
+
+.form-input:focus, select:focus {
+  outline: none;
+  border-bottom-color: $primaryColor;
+}
+
+.form-input:disabled {
+  background-color: #fff;
+  opacity: 0.5;
+}
+
+select {
+  color: gray;
+  font-family: $themeFont;
+}
+
+.form-input-wrap {
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  &.select {
+    position: relative;
+    &::before {
+      content: '\f0d7';
+      font-family: 'FontAwesome';
+      color: $gray;
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 5px;
+      pointer-events: none;
+      z-index: 1;
+    }
+  }
+}

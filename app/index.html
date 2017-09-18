@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head lang="en">
+   <base href="/">
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <meta name="description" content="">
+   <meta name="author" content="JohnSackson">
+   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+   <link rel="stylesheet" href="./dist/css/style.css" />
+   <!--<link rel="stylesheet" href="css/responsive.css" />-->
+   <title>Transaction User Interface</title>
+
+   <!-- styles -->
+   
+</head>
+
+<body>
+   <div class="page-wrapper">     
+      <!-- views -->
+      <div ng-view></div>
+   </div>
+   <div class="processing" ng-if="processing">
+      <div class="loader">
+         <img src="./../../img/loader.gif" alt="loader" />
+      </div>
+      <div class="back-drop"></div>
+   </div>
+   <!-- scripts -->
+   <script src="bower_components/angular/angular.min.js"></script>
+   <script src="bower_components/angular-route/angular-route.min.js"></script>
+   <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+   <script src="scripts/app.js"></script>   
+   <script src="scripts/controllers/main-controller.js"></script>
+   <script src="scripts/controllers/create-transaction-controller.js"></script>
+   <script src="scripts/services/restservice.js"></script>
+   <script src="scripts/filter/common-filters.js"></script>
+   <script src="scripts/directives/common-directives.js"></script>
+</body>
+
+</html>

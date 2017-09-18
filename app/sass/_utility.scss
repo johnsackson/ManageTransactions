@@ -1,0 +1,40 @@
+body {
+  line-height: 1.46;
+  max-width: 2000px;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+}
+
+ol {
+  list-style: decimal;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+body, button, input, label {
+  font-family: $themeFont;
+  font-style: normal;
+  font-weight: 400;
+}
+
+b, h4, strong {
+  font-style: normal;
+  font-weight: 700;
+}
+
+h2, h3 {
+  font-weight: 700;
+  font-style: normal;
+}
+
+table {}
+
+.table-responsive {
+   min-height: .01%;
+   overflow-x: auto;
+}

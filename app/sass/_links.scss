@@ -1,0 +1,70 @@
+a {
+   margin: 0;
+   font-size: 100%;
+   text-decoration: none;
+   vertical-align: baseline;
+   padding: 0;
+   background: 0 0;
+   color: $primaryColor;
+   &:active {
+      color: $primaryColor;
+      background-color: $white;
+   }
+}
+
+/* theming */
+a.button-round {
+  border-radius: 50%;
+  color: $white;
+  width: 32px;
+  height: 32px;
+  background: $primaryColor;
+  text-align: center;
+  display: inline-block;
+  margin-right: 5px;
+  &.primary {
+    background: $primaryColor;
+    color: $white;
+    &:hover {
+      background: $primaryAnchorColorHover;
+    }
+  }
+  &.secondary {
+    background: $secondaryColor;
+    color: $white;
+    &:hover {
+      background: $secondaryAnchorColorHover;
+    }
+  }
+  &.primary-outline {
+    background: $white;
+    border: 1px solid $primaryColor;
+    color: $primaryColor;
+    &:hover, &:active {
+      background: $primaryColor;
+      color: $white;
+    }
+  }
+  &.secondary-outline {
+    background: $white;
+    border: 1px solid $secondaryColor;
+    color: $secondaryColor;
+    &:hover, &:active {
+      background: $secondaryColor;
+      color: $white;
+    }
+  }
+  &.danger-outline {
+    background: $white;
+    border: 1px solid $dangerAnchorColor;
+    color: $dangerAnchorColor;
+    &:hover, &:active {
+      background: $dangerAnchorColor;
+      color: $white;
+    }
+  }
+  i {
+    padding-top: 8px;
+    font-size: 16px;
+  }
+}

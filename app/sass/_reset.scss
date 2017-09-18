@@ -1,0 +1,88 @@
+body {
+   background: $bodyBackgroundColor;
+   font-size: $firstFontValue;
+   overflow: hidden;
+   font-size: 100%;
+   vertical-align: baseline;
+   margin: 0;
+   padding: 0;
+   outline: 0;
+   border: 0;
+   background: 0 0;
+   line-height: 1.46;
+   max-width: 2000px;
+   color: $bodyTextColor;
+   font-family: $themeFont;
+   font-style: normal;
+   font-weight: 400;
+}
+
+svg {
+	&:not(:root) {
+		overflow: hidden;
+	}
+}
+
+* {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+a,
+button,
+input {
+   margin: 0
+}
+
+article,
+aside,
+b,
+body,
+div,
+figcaption,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+html,
+img,
+label,
+li,
+nav,
+p,
+span,
+strong,
+ul {
+   font-size: 100%;
+   vertical-align: baseline;
+   margin: 0;
+   padding: 0;
+   outline: 0;
+   border: 0;
+   background: 0 0
+}
+
+html {
+   /*text-rendering: optimizeLegibility!important;
+   -webkit-font-smoothing: antialiased!important;*/
+   overflow-y: scroll;
+   overflow-x: hidden
+}
+
+p {
+   color: $bodyTextColor;
+   font-size: $firstFontValue;
+}
+
+.clearfix {
+  &::after, &::before {
+    content: " ";
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}

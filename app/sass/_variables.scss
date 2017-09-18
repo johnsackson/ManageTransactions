@@ -1,0 +1,55 @@
+// colors  
+///////////////////////////////////
+
+//common colors
+$white: #ffffff;
+$black: #000000;
+$gray: #333333;
+
+//theme colors
+$primaryColor: #5f7ef5;
+$secondaryColor: #2ccec1;
+//$tertiaryColor:
+
+//background
+$bodyBackgroundColor: $white;
+$sidebarBackgroundColor: $primaryColor;
+
+//font colors
+$bodyTextColor: #333333;
+$primaryTextColor: $white;
+
+$successColor: #2ccec1;
+$errorColor: #e95c33;
+
+//border colors
+$tableBorderColor: #dbe0e2;
+
+//anchor colors
+$primaryAnchorColor: $primaryColor;
+$secondaryAnchorColor: $secondaryColor;
+$dangerAnchorColor: $errorColor;
+
+$primaryAnchorColorHover: #4c6ae0;
+$secondaryAnchorColorHover: $secondaryColor;
+
+
+//button colors
+$primaryButtonColor: $secondaryColor;
+$secondaryButtonColor: $primaryColor;
+
+//shadow colors
+$shadowColor: rgba(0, 0, 0, 0.1);
+
+$inputBorderColor: rgba(0, 0, 0, 0.3);
+
+
+// fonts  
+///////////////////////////////////
+
+$themeFont: 'Lato', sans-serif;
+
+//body fontsize
+$firstFontValue: 62.5%;
+$firstFontValue: 24px !default;
+

@@ -1,0 +1,143 @@
+<div class="left-column">
+   <header class="" role="header">
+      <a class="logo" href="">
+         <img src="./../../img/logo.png" alt="">
+      </a>
+      <div class="intro-content">
+         <h1>Get Started</h1>
+         <p>Please enter an email id to proceed</p>
+         <form class="form-wrap shadowed" name="emailForm" ng-submit="getAllTransactions(emailForm, emailForm.$valid)" novalidate autocomplete="off">
+            <div class="form-input-wrap" ng-class="{'has-error': (emailForm.$submitted && emailForm.email.$invalid) || (emailForm.email.$touched && emailForm.email.$invalid) }">
+               <input class="form-input" type="text" id="" name="email" required ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-required="true" ng-minlength="1" placeholder="Email" />
+               <button class="" type="submit">Continue</button>
+               <div class="error-msg" ng-if="(emailForm.email.$invalid && emailForm.email.$touched) || (emailForm.$submitted && emailForm.email.$invalid)">Please enter an email</div>
+            </div>
+
+         </form>
+      </div>
+   </header>
+</div>
+
+<div class="right-column">
+   <div class="default-msg" ng-if="!showData">
+      <h2>You're supposed to choose an account to view transactions</h2>
+   </div>
+   <div class="content" ng-if="showData">
+      <div class="card-title">
+         <h3>Previous Transactions</h3>
+         <a class="button-round primary" href="javascript:void(0)" ng-click="showBoxOne = !showBoxOne" title="Create a new transaction">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+         </a>
+         <div class="create-txn-wrap" ng-controller="createTxnController" ng-include src="'partials/create-transaction.html'" ng-show="showBoxOne"></div>
+      </div>
+      <div class="form-input-wrap inline">
+         <label for="search-input"><i class="fa fa-search" aria-hidden="true"></i><span class="sr-only">Search icons</span></label>
+         <input type="text" ng-model="search" class="form-input" placeholder="Search by Id, Currency, Amount or Date" />
+      </div>
+      <div class="table-wrap table-responsive">
+      <table class="data-table">
+         <!--ng-show="showResults"-->
+         <thead>
+            <tr>
+               <th ng-click="sort('id')" class="sortable">Id
+                  <span class="fa fa-sort" ng-show="sortKey=='id'" ng-class="{'fa-sort-asc':reverse,'fa-sort-desc':!reverse}"></span>
+               </th>
+               <th ng-click="sort('amount')" class="sortable">Amount
+                  <span class="fa fa-sort" ng-show="sortKey=='amount'" ng-class="{'fa-sort-asc':reverse,'fa-sort-desc':!reverse}"></span>
+               </th>
+               <th ng-click="sort('currency')" class="sortable">Currency
+                  <span class="fa fa-sort" ng-show="sortKey=='currency'" ng-class="{'fa-sort-asc':reverse,'fa-sort-desc':!reverse}"></span>
+               </th>
+               <th ng-click="sort('txn_date')" class="sortable">Date
+                  <span class="fa fa-sort" ng-show="sortKey=='txn_date'" ng-class="{'fa-sort-asc':reverse,'fa-sort-desc':!reverse}"></span>
+               </th>
+               <th class="sortable no-sort unselectable">Actions</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr dir-paginate-start="userDetail in userDetails|orderBy:sortKey:reverse|filter:search|itemsPerPage:6">
+               <td align="middle">{{userDetail.id}}</td>
+               <td align="middle">{{userDetail.amount}}</td>
+               <td align="middle">{{userDetail.currency}}</td>
+               <td align="middle">{{userDetail.txn_date}}</td>
+               <td align="middle">
+                  <a class="button-round secondary-outline" href="javascript:void(0)" ng-click="getTransaction(userDetail.id);   ctrl.expanded = !ctrl.expanded"  >
+                     <i class="fa " ng-class="ctrl.expanded ? 'fa-close' : 'fa-pencil'" aria-hidden="true"></i>
+                  </a>
+                  <a class="button-round danger-outline" href="javascript:void(0)" ng-click="deleteTrans(userDetail)">
+                     <i class="fa fa-trash-o" aria-hidden="true" title="Remove a transaction"></i>
+                  </a>
+               </td>
+            </tr>
+
+            <tr ng-show="ctrl.expanded" dir-paginate-end>
+               <td colspan="5">
+                  <div class="card-title">
+                     <h3>Edit transaction</h3>
+                  </div>
+                  <form role="form" name="updateTransaction" novalidate method="post" ng-submit="saveTransaction(updateTransaction.$valid, userDetail.id)" autocomplete="off">
+                     <div class="row">
+                        <div class="col-grid-3 col-grid-sm-1">
+                           <div class="form-input-wrap" ng-class="{'has-error': (createTransaction.$submitted && createTransaction.amount.$invalid) || (updateTransaction.amount.$touched && updateTransaction.amount.$invalid) }">
+                              <input class="form-input" type="text" name="amount" placeholder="Amount" ng-model="userDetail.amount" required restrict-alphabets />
+                              <div ng-if="(updateTransaction.amount.$invalid && updateTransaction.amount.$touched) || (updateTransaction.$submitted && updateTransaction.amount.$invalid)">
+                                 <div ng-message="required" class="error-msg">Field cannot be empty</div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-grid-3 col-grid-sm-1">
+                           <div class="form-input-wrap select">
+                              <select class="form-input" name="currency" placeholder="Select Currency Type" ng-model="userDetail.currency" required>
+                                             <option value="">Currency Type</option>
+                                             <option value="EUR">EUR</option>
+                                             <option value="GBP">GBP</option>
+                                             <option value="INR">INR</option>
+                                             <option value="USD">USD</option>
+                                          </select>
+                              <div ng-if="(updateTransaction.currency.$invalid && updateTransaction.currency.$touched) || (updateTransaction.$submitted && updateTransaction.currency.$invalid)">
+                                 <div ng-message="required" class="error-msg">Choose a Currency type</div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-grid-3 col-grid-sm-1">
+                           <div class="form-input-wrap">
+                              <input class="form-input" type="text" name="txn_date" placeholder="Date" ng-model="userDetail.txn_date" disabled />
+                              <span class="muted">Date field is disabled with existing date.</span>
+                           </div>
+                        </div>
+                     </div>
+                     <!--<div class="form-input-wrap">
+                                          <label for="id">Amount</label>
+                                          <input class="form-input" type="text" name="amount" ng-model="userDetail.amount" />
+                                       </div>
+                                       <div class="input-group">
+                                          <label for="currency">Currency</label>
+                                          <select class="" name="currency" ng-model="userDetail.currency">
+                                          <option value="AED">AED</option>
+                                          <option value="AUD">AUD</option>                     
+                                          <option value="CAD">CAD</option>
+                                          <option value="EUR">EUR</option>
+                                          <option value="GBP">GBP</option>
+                                          <option value="INR">INR</option>
+                                          <option value="USD">USD</option>
+                                       </select>
+                                       </div>
+                                       <div class="input-group">
+                                          <label for="id">Transaction Date</label>
+                                          <input class="" type="text" name="txn_date" ng-model="userDetail.txn_date" disabled="disabled" />
+                                       </div>-->
+                     <div class="action-wrap">
+                        <button type="submit" ng-disabled="updateTransaction.$pristine|| updateTransaction.$invalid">Save</button>   
+                     </div>
+                  </form>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      </div>
+      <div class="pagination-wrap">
+         <dir-pagination-controls max-size="6" direction-links="true" boundary-links="true"  class="page-controls">
+         </dir-pagination-controls>
+      </div>
+   </div>
+</div>
