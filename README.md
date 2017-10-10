@@ -1,6 +1,8 @@
 # A study/learning app
-Demo url: https://johnsackson.github.io/ManageTransactions/dist/
+
 To manage basic user transactions
+
+Demo url: https://johnsackson.github.io/ManageTransactions/dist/
 
 ### Explains
 - Node, Angular JS setup with gulp task runners
