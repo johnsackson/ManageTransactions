@@ -1,4 +1,5 @@
 # A study/learning app
+Demo url: https://johnsackson.github.io/ManageTransactions/dist/
 To manage basic user transactions
 
 ### Explains
